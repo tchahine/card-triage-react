@@ -32,8 +32,7 @@ class CardLine extends React.PureComponent<Props> {
   }
   render() {
     const { card } = this.props;
-    moment.locale("fr");
-    const date = moment(card.created_date).format("L");
+    const date = moment(card.created_date).format("DD/MM/YYYY");
     const classToLine = "cardLine card " + card.status;
     return (
       <div className={classToLine} onClick={() => this.onClick()} /* ref={drag} style={{ ...style, opacity }} */>
