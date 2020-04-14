@@ -14,6 +14,7 @@
     "@types/redux": "^3.6.0",
     "@types/redux-saga": "^0.10.5",
     "@types/reselect": "^2.2.0",
+    "card-triage": "git+ssh://git@github.com:CardioLogs/card-triage.git",
     "bootstrap": "^4.4.1",
     "moment": "^2.24.0",
     "node-sass": "^4.13.1",
@@ -36,11 +37,14 @@
     "eslint-config-prettier": "^6.10.1",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.0.2",
     "redux-saga-test-plan": "^4.0.0-rc.3"
   },
   "scripts": {
-    "start": "PORT=8080 react-scripts start",
+    "api": "yarn --cwd node_modules/card-triage/ run api",
+    "start-dev": "PORT=8080 react-scripts start",
+    "start": "run-p api start-dev",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
