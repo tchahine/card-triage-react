@@ -9,11 +9,7 @@ import { compose } from "redux";
 export { rootReducer };
 
 export const composeEnhancers =
-  (process.env.REACT_APP_DEVMODE === "on" &&
-    window &&
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
-  compose;
+  (process.env.REACT_APP_DEVMODE === "on" && window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware({
@@ -43,7 +39,6 @@ persistStore(store);
 
 sagaMiddleware.run(rootSaga as any);
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 (window as any).store = store;
 
 export default store;
